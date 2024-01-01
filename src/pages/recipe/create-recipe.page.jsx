@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Textfield } from "../../components/shared/ui/textfield.jsx";
-import { Button } from "../../components/shared/ui/button.jsx";
+import { Textfield, Button } from "../../components/shared/ui";
 
 function CreateRecipePage() {
   const [recipe, setRecipe] = useState({

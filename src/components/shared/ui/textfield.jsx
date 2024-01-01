@@ -1,7 +1,17 @@
 import { useState } from "react";
+import cn from "../../../lib/cn.js";
 
 export const Textfield = (props) => {
-  const { label, name, value, onChange, placeholder, type } = props;
+  const {
+    label,
+    name,
+    value,
+    onChange,
+    placeholder,
+    type,
+    className,
+    ...rest
+  } = props;
   const [inputValue, setInputValue] = useState(value);
 
   const handleChange = (e) => {
@@ -10,12 +20,13 @@ export const Textfield = (props) => {
   };
 
   return (
-    <div className="flex flex-col space-y-1">
+    <div className={cn("flex flex-col space-y-1", className)}>
       <label className="select-none" htmlFor={name}>
         {label}
       </label>
       <input
-        className="border border-gray-300 rounded-lg px-2 py-1"
+        {...rest}
+        className="rounded-lg w-full p-2"
         type={type}
         name={name}
         id={name}
