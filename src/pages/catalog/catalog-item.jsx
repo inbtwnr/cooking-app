@@ -1,4 +1,4 @@
-import Chip from "../../components/shared/chip.jsx";
+import Chip from "../../components/shared/ui/chip.jsx";
 import {RouterLink} from "../../components/shared/link.jsx";
 
 const CatalogItem = (props) => {

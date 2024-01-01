@@ -20,10 +20,10 @@ const CatalogPage = () => {
     }]);
 
     return (
-        <div className="max-w-xl space-y-4 mx-auto">
+        <>
             <h1 className="text-4xl font-bold">Catalog</h1>
             <CatalogList recipes={recipes} />
-        </div>
+        </>
     );
 };
 

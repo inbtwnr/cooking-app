@@ -1,19 +1,18 @@
-import {NavLink, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
+import {Header} from "../components/shared/header.jsx";
 
 function Layout() {
     return (
-        <main>
-            <h1><NavLink to="">Cooking App</NavLink></h1>
-            <Outlet />
-            <ul>
-                <li>
-                    <NavLink to="recipes">Look Catalog</NavLink>
-                </li>
-                <li>
-                    <NavLink to="recipes/add">Create Recipe</NavLink>
-                </li>
-            </ul>
-        </main>
+        <>
+            <Header />
+            <main>
+                <div className="max-w-xl space-y-4 mx-auto">
+                    <Outlet />
+                </div>
+            </main>
+            <footer>
+            </footer>
+        </>
     );
 }
 
