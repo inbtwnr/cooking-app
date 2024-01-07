@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Textfield, Button } from "../../components/shared/ui";
 
 function CreateRecipePage() {
@@ -7,7 +7,7 @@ function CreateRecipePage() {
     description: "",
   });
 
-  const handleRecipeChange = (e) => {
+  const handleRecipeChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setRecipe((prevState) => ({
       ...prevState,
