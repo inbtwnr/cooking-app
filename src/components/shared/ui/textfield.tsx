@@ -1,7 +1,11 @@
 import { useState } from "react";
-import cn from "../../../lib/cn.js";
+import cn from "../../../lib/cn.ts";
 
-export const Textfield = (props) => {
+interface TextfieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export const Textfield = (props: TextfieldProps) => {
   const {
     label,
     name,
@@ -14,9 +18,11 @@ export const Textfield = (props) => {
   } = props;
   const [inputValue, setInputValue] = useState(value);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    onChange(e);
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   return (
