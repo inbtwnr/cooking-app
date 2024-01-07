@@ -1,7 +1,8 @@
-import { Chip } from "../../components/shared/ui/chip.jsx";
-import { RouterLink } from "../../components/shared/link.jsx";
+import { Chip } from "../../components/shared/ui";
+import { RouterLink } from "../../components/shared/link.tsx";
+import { Recipe } from "./catalog.page.tsx";
 
-const CatalogItem = (props) => {
+const CatalogItem = (props: Recipe) => {
   const { id, name, description, time, ingredients } = props;
 
   return (
@@ -16,7 +17,7 @@ const CatalogItem = (props) => {
         </div>
         <ul className="flex m-0 p-0 gap-2">
           {ingredients.map((ingredient) => (
-            <Chip key={ingredient} name={ingredient} />
+            <Chip key={ingredient.id}>{ingredient.name}</Chip>
           ))}
         </ul>
       </li>
