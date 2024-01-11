@@ -1,6 +1,7 @@
 import cn from "../../lib/cn.ts";
+import { TabInterface } from "../../types";
 
-const Tab = (props: any) => {
+const Tab = (props: TabInterface) => {
   const { children, active, ...rest } = props;
 
   const tabClasses =

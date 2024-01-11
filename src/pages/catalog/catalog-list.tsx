@@ -1,13 +1,5 @@
 import CatalogItem from "./catalog-item.tsx";
-import { Ingredient } from "./catalog.page.tsx";
-
-interface Recipe {
-  id: number;
-  name: string;
-  description: string;
-  ingredients: Ingredient[];
-  time: string;
-}
+import { Recipe } from "../../types";
 
 interface CatalogListProps {
   recipes: Recipe[];

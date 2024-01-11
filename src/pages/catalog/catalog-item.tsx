@@ -1,6 +1,6 @@
 import { Chip } from "../../components/shared/ui";
 import { RouterLink } from "../../components/shared/link.tsx";
-import { Recipe } from "./catalog.page.tsx";
+import { Recipe } from "../../types";
 
 const CatalogItem = (props: Recipe) => {
   const { id, name, description, time, ingredients } = props;
