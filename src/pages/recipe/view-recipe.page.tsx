@@ -1,142 +1,12 @@
 import { useState, useEffect } from "react";
-import Tab from "../../components/shared/tab.js";
 import { moveTabWheel } from "../../lib/moveTabWheel.tsx";
+import { Recipe, TabProps } from "../../types";
 import {
-  RecipeTab,
-  RecipeTabDescription,
-  RecipeTabTitle,
+  Tabs,
+  AboutTab,
+  IngredientsTab,
+  DirectionsTab,
 } from "../../components/recipe/view-tab.tsx";
-import { Recipe } from "../catalog/catalog.page.tsx";
-
-interface TabsProps {
-  tabs: Tab[];
-  activeTab: number;
-  handleTabClick: (e: any) => void;
-}
-
-interface TabInner {
-  tab: Tab;
-  recipe: Recipe;
-  activeTab: number;
-}
-
-const Tabs = (props: TabsProps) => {
-  const { tabs, activeTab, handleTabClick } = props;
-
-  return (
-    <div className="relative box-border border-b border-b-slate-200">
-      {tabs.map((tab) => (
-        <Tab
-          key={tab.id}
-          data-tab={tab.id}
-          active={activeTab === tab.id}
-          onClick={handleTabClick}
-          aria-label={tab.name}
-          tabIndex="0"
-        >
-          {tab.name}
-        </Tab>
-      ))}
-      <div
-        className="absolute bg-red-600 h-0.5 bottom-0"
-        id="movingTabWheel"
-      ></div>
-    </div>
-  );
-};
-
-const AboutTab = (props: TabInner) => {
-  const { recipe, tab, activeTab } = props;
-  const { main, overall } = recipe;
-  const { id, name } = tab;
-
-  if (
-    main !== null &&
-    main !== undefined &&
-    overall !== null &&
-    overall !== undefined
-  ) {
-    return (
-      <RecipeTab tab={id} activeTab={activeTab}>
-        <RecipeTabTitle>{name}</RecipeTabTitle>
-        <RecipeTabDescription>
-          <div className="grid gap-4 grid-cols-[minmax(20px,160px)_1fr]">
-            <div>{main.title}</div>
-            <div>{main.description}</div>
-            <div>{overall.title}</div>
-            <div>{overall.description}</div>
-          </div>
-        </RecipeTabDescription>
-      </RecipeTab>
-    );
-  } else {
-    return (
-      <div>
-        <p>Recipe description is empty now</p>
-      </div>
-    );
-  }
-};
-
-const IngredientsTab = (props: TabInner) => {
-  const { recipe, tab, activeTab } = props;
-  const { ingredients } = recipe;
-  const { id } = tab;
-
-  return (
-    <RecipeTab tab={id} activeTab={activeTab}>
-      <RecipeTabTitle>Ingredients</RecipeTabTitle>
-      <RecipeTabDescription>
-        <div>
-          {ingredients.map((ingredient) => (
-            <label className="flex space-x-2 prose-p:my-0" key={ingredient.id}>
-              <input type="checkbox" />
-              <p>
-                {ingredient.name} - {ingredient.quantity}{" "}
-                {ingredient.measurement}
-              </p>
-            </label>
-          ))}
-        </div>
-      </RecipeTabDescription>
-    </RecipeTab>
-  );
-};
-
-const DirectionsTab = (props: TabInner) => {
-  const { recipe, tab, activeTab } = props;
-  const { directions } = recipe;
-  const { id, name } = tab;
-
-  if (directions === null || directions === undefined) {
-    return (
-      <RecipeTab tab={id} activeTab={activeTab}>
-        <RecipeTabTitle>{name}</RecipeTabTitle>
-        <RecipeTabDescription>
-          <p>Directions are empty now</p>
-        </RecipeTabDescription>
-      </RecipeTab>
-    );
-  }
-
-  return (
-    <RecipeTab tab={id} activeTab={activeTab}>
-      <RecipeTabTitle>{name}</RecipeTabTitle>
-      <RecipeTabDescription>
-        <ol>
-          {directions.map((direction) => (
-            <li key={direction.step}>{direction.description}</li>
-          ))}
-        </ol>
-      </RecipeTabDescription>
-    </RecipeTab>
-  );
-};
-
-export type Tab = {
-  id: number;
-  name: string;
-};
 
 const ViewRecipePage = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -152,7 +22,7 @@ const ViewRecipePage = () => {
     moveTabWheel(selectedElement, "movingTabWheel");
   }, [activeTab]);
 
-  const tabs: Tab[] = [
+  const tabs: TabProps[] = [
     {
       id: 1,
       name: "About",

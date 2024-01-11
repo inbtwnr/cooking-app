@@ -1,39 +1,7 @@
 import { useState } from "react";
 import { CatalogList } from "./catalog-list.tsx";
 import { Textfield, Button, Chip } from "../../components/shared/ui";
-
-type MainTab = {
-  title: string;
-  description: string;
-};
-
-type OverallTab = {
-  title: string;
-  description: string;
-};
-
-type Direction = {
-  step: number;
-  description: string;
-};
-
-export type Ingredient = {
-  id: number;
-  name: string;
-  quantity: number;
-  measurement: "g" | "ml" | "unit" | "tsp" | "tbsp" | "cup" | "pinch" | "dash";
-};
-
-export interface Recipe {
-  id: number;
-  name: string;
-  description: string;
-  ingredients: Ingredient[];
-  time: string;
-  main?: MainTab | null;
-  overall?: OverallTab | null;
-  directions?: Direction[];
-}
+import { Recipe, Ingredient } from "../../types";
 
 const allRecipes: Recipe[] = [
   {
@@ -554,12 +522,7 @@ const SearchInput = (props: SearchInputProps) => {
             }
           }}
         />
-        <Button
-          onClick={handleSubmitSearch}
-          className="p-2 text-base bg-sky-600 text-white rounded"
-        >
-          Search
-        </Button>
+        <Button onClick={handleSubmitSearch}>Search</Button>
       </div>
       {/* TODO: Add filter by ingredient */}
       <div className="flex gap-2">
