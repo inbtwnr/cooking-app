@@ -1,5 +1,5 @@
-import CatalogItem from "./catalog-item.tsx";
-import { Recipe } from "../../types";
+import CatalogItem from "../catalogItem/catalogItem.tsx";
+import { Recipe } from "../../../types";
 
 interface CatalogListProps {
   recipes: Recipe[];
@@ -9,7 +9,7 @@ export const CatalogList = (props: CatalogListProps) => {
   const { recipes } = props;
 
   return (
-    <ul className="grid grid-cols-3 list-none flex-col gap-2">
+    <ul className="grid grid-cols-3 list-none flex-col gap-8">
       {recipes.map((recipe) => (
         <CatalogItem key={recipe.id} {...recipe} />
       ))}

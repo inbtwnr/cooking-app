@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { CatalogList } from "./catalog-list.tsx";
-import { Textfield, Button, Chip } from "../../components/shared/ui";
-import { Recipe, Ingredient } from "../../types";
+import { CatalogList } from "../../components/catalog/catalogList/catalogList.tsx";
+import { SearchInput } from "../../components/catalog/catalogSearchInput/searchInput.tsx";
+import { Recipe } from "@/types";
 
 const allRecipes: Recipe[] = [
   {
@@ -92,7 +92,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 3,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -146,7 +146,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 4,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -200,7 +200,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 5,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -254,7 +254,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 6,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -308,7 +308,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 7,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -362,7 +362,7 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
   {
-    id: 2,
+    id: 8,
     name: "Pizza",
     description: "Tasty",
     main: {
@@ -470,69 +470,6 @@ const allRecipes: Recipe[] = [
     time: "30 minutes",
   },
 ];
-
-const INGREDIENTS: Ingredient[] = [
-  {
-    id: 1,
-    name: "Bread",
-    quantity: 2,
-    measurement: "g",
-  },
-  {
-    id: 2,
-    name: "Meat",
-    quantity: 1,
-    measurement: "g",
-  },
-  {
-    id: 3,
-    name: "Cheese",
-    quantity: 1,
-    measurement: "g",
-  },
-  {
-    id: 4,
-    name: "Salad",
-    quantity: 4,
-    measurement: "g",
-  },
-];
-
-interface SearchInputProps {
-  search: string;
-  setSearch: (value: string) => void;
-  handleSubmitSearch: () => void;
-}
-
-const SearchInput = (props: SearchInputProps) => {
-  const { search, setSearch, handleSubmitSearch } = props;
-
-  return (
-    <div>
-      <div className="flex w-full gap-2 items-end">
-        <Textfield
-          label="Search"
-          placeholder="e.g. Burger"
-          className="flex-1"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              handleSubmitSearch();
-            }
-          }}
-        />
-        <Button onClick={handleSubmitSearch}>Search</Button>
-      </div>
-      {/* TODO: Add filter by ingredient */}
-      <div className="flex gap-2">
-        {INGREDIENTS.map((ingredient: Ingredient) => (
-          <Chip key={ingredient.name}>{ingredient.name}</Chip>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const CatalogPage = () => {
   const [recipes, setRecipes] = useState(allRecipes);

@@ -1,17 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../components/shared/header.tsx";
+import { Header, Footer } from "@/components/shared/layout";
 
 function Layout() {
   return (
-    <>
+    <div className="h-[100svh] flex flex-col">
       <Header />
-      <main>
-        <div className="container space-y-4 mx-auto">
-          <Outlet />
-        </div>
+      <main className="space-y-2">
+        <Outlet />
       </main>
-      <footer className="p-4">CookBook</footer>
-    </>
+      <Footer />
+    </div>
   );
 }
 

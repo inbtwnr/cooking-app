@@ -1,4 +1,4 @@
-import cn from "../../lib/cn.ts";
+import { cn } from "@/lib/utils.ts";
 import { useEffect, useState } from "react";
 import {
   RecipeTabBodyInterface,
@@ -6,7 +6,7 @@ import {
   RecipeTabTitleInterface,
   TabInner,
   TabsProps,
-} from "../../types";
+} from "@/types";
 import Tab from "../shared/tab.tsx";
 
 export const RecipeTabTitle = (props: RecipeTabTitleInterface) => {

@@ -1,8 +1,22 @@
-# React + Vite
+# Recipe app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+___
+The main reason I wanted to create this app is to practice myself to build a headless application for my Laravel API Application. So, the basic things this app should do are:
 
-Currently, two official plugins are available:
+### Functional Requirements:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Authorize in App**<br /> 
+   * Create Account
+   * Login.
+2. **View All Recipes**<br /> Search Recipes by Name or Ingredients.
+3. **Create Recipe**
+4. **View Recipe and Save it**
+5. **Edit Recipe Your Own Recipe**
+
+## Stack
+___
+- React
+- TypeScript
+- React Router
+- React Query
