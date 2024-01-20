@@ -6,7 +6,9 @@ The main reason I wanted to create this app is to practice myself to build a hea
 
 ### Functional Requirements:
 
-1. **Authorize in App**<br /> Create Account and Login.
+1. **Authorize in App**<br /> 
+   * Create Account
+   * Login.
 2. **View All Recipes**<br /> Search Recipes by Name or Ingredients.
 3. **Create Recipe**
 4. **View Recipe and Save it**
