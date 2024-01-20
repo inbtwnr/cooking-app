@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { Textfield, Button } from "../../components/shared/ui";
+import { Input, Button } from "../../components/shared/ui";
 
 function CreateRecipePage() {
   const [recipe, setRecipe] = useState({
@@ -19,14 +19,14 @@ function CreateRecipePage() {
     <div className="prose">
       <h1 className="select-none">Add Recipe</h1>
       <div className="space-y-2">
-        <Textfield
+        <Input
           label="Add a name"
           value={recipe.name}
           name="name"
           onChange={handleRecipeChange}
           placeholder="e.g. Burger"
         />
-        <Textfield
+        <Input
           label="Add a description"
           value={recipe.description}
           name="description"

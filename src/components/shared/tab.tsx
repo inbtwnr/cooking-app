@@ -1,5 +1,5 @@
-import cn from "../../lib/cn.ts";
-import { TabInterface } from "../../types";
+import { cn } from "@/lib/utils.ts";
+import { TabInterface } from "@/types";
 
 const Tab = (props: TabInterface) => {
   const { children, active, ...rest } = props;
